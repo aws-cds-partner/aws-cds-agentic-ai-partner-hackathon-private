@@ -45,7 +45,7 @@ Judging account: **aws-cds-partner**
 > ⚠️ **Invitations expire after 7 days.** We accept promptly, but if yours
 > expires before we do, please re-send it.
 
-### Step 3 — Do not revoke access until end of Hackathon
+### Step 3 — Do not revoke access until 11/13/26
 
 We  may need to re-check code during judging. **Revoking access early may impact your submission.**
 
