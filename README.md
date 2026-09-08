@@ -51,7 +51,7 @@ We  may need to re-check code during judging. **Revoking access early may impact
 
 ### Step 4 — Submit
 
-Submit formally in Devpost
+Submit formally in Devpost and provide the invitation link from Step 2.
 
 ---
 
