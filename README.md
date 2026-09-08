@@ -1,9 +1,5 @@
 # Hackathon Submission Instructions
 
-> **Submission deadline:** `<DATE, TIME, TIMEZONE>`
-> **Access must remain active until:** `<DATE — at least 14 days after judging ends>`
-> **Questions:** `<CONTACT EMAIL>` or open an issue in this repository.
-
 ## Overview
 
 To be evaluated, your submission must give our judging panel access to the source
@@ -15,7 +11,6 @@ Choose **one** of the options below.
 |---|---|---|
 | **A — Public repository** ✅ *Recommended* | Code can be shared openly | Lowest |
 | **B — Private repository + judge access** | Code must stay confidential | Medium |
-| **C — Signed archive** | Your GitHub org blocks external collaborators | Highest |
 
 ---
 
@@ -24,11 +19,9 @@ Choose **one** of the options below.
 Host your code in a **public** repository on **GitHub** or **GitLab**.
 
 1. Push your final code to the public repository.
-2. Note the **exact commit SHA** you want judged.
-3. Submit via the form below.
+2. Share the repo url directly in devpost
 
-No access grants are needed. This is the fastest and most reliable path, and it
-means your repository benefits from free automated secret scanning.
+No access grants are needed. This is the fastest path.
 
 ---
 
@@ -37,7 +30,7 @@ means your repository benefits from free automated secret scanning.
 ### Step 1 — Prepare a private repository
 
 Create a private repository containing **only** the code assets relevant to your
-submission. Do not include unrelated proprietary code.
+submission. Do not include unrelated proprietary code such videos or office documents.
 
 ### Step 2 — Grant access to the judging account
 
@@ -46,24 +39,19 @@ Add our judging account as a collaborator:
 **Repository → Settings → Collaborators → Manage access → Add people →
 type `aws-cds-partner` → Add**
 
-Judging account: **https://github.com/aws-cds-partner**
+Judging account: **aws-cds-partner**
 
-> ⚠️ **Invite by username (`aws-cds-partner`), not by email address.**
-> Email-based invitations fail unless the address is verified on the account,
-> and they behave differently for billing.
 
 > ⚠️ **Invitations expire after 7 days.** We accept promptly, but if yours
 > expires before we do, please re-send it.
 
-### Step 3 — Do not revoke access until `<DATE>`
+### Step 3 — Do not revoke access until end of Hackathon
 
-We re-verify access at the deadline and may need to re-check code during
-judging and any dispute resolution. **Revoking access early may disqualify
-your submission.**
+We  may need to re-check code during judging. **Revoking access early may impact your submission.**
 
 ### Step 4 — Submit
 
-Complete the submission form below, including your declared commit SHA.
+Submit formally in Devpost
 
 ---
 
@@ -72,35 +60,28 @@ Complete the submission form below, including your declared commit SHA.
 Please be aware of a GitHub platform limitation:
 
 > On repositories owned by a **personal account**, GitHub does **not** offer a
-> read-only collaborator role. Any collaborator you add necessarily receives
-> **write** access.
+> read-only collaborator role.
 
 **Our written commitments to you:**
 
 1. We will **never push, commit, force-push, merge, or delete** anything in your
    repository. Our access is used strictly to read and clone.
-2. We evaluate **only the commit SHA you declare** in your submission. We record
-   that SHA independently at the deadline, so your submission is verifiable and
-   tamper-evident.
+2. We evaluate the main branch in your submission, latest commit. 
 3. We will remove ourselves as a collaborator once judging concludes.
-
-**If you require true read-only access**, host the repository in a **GitHub
-organization** (free organizations support a full role matrix) and grant
-`aws-cds-partner` the **Read** role instead. This is the preferred setup where
-your policies allow it.
-
-> 💡 **If your repository is owned by an organization on a paid GitHub plan**
-> (Team or Enterprise), adding an external collaborator to a private repository
-> **consumes a licensed seat on your organization's bill**. Please confirm this
-> is acceptable before proceeding, or use Option A or C.
 
 ---
 
-## Option C — Signed archive (fallback)
+## Security requirements (mandatory)
+Responsibility for keeping credentials out of your repository rests with you.
 
-Use this **only** if your GitHub organization uses Enterprise Managed Users or
-otherwise prohibits adding external collaborators — in which case Option B is
-technically impossible for you.
+Do not commit any credentials. Specifically:
 
-1. Produce a complete archive that preserves history:
-   
+❌ No AWS access keys, secret access keys, or session tokens
+❌ No API keys, tokens, private keys, .pem files, or .env files
+✅ Use IAM roles, OIDC, or short-lived credentials
+✅ Provide a .env.example with placeholder values instead
+
+Before submitting, scan your repository:
+
+# Free and works locally on private repositories
+https://github.com/awslabs/git-secrets
